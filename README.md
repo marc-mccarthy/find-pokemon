@@ -1,3 +1,2 @@
 # find-original-pokemon
-Choose a number and you see the original Pokemon.
-Working on 151.
+Choose a number and you see the original Pokemon. There is one trick though...
