@@ -1,11 +1,83 @@
 body {
     color: white;
     background-image: url('../images/pokeball.png');
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-repeat: repeat;
 }
 
-h2 {
+h1 {
+    text-align: center;
+}
+
+.flex-container {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-item {
+    height: 25px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    justify-items: center;
+}
+
+.grid-item {
+    padding: 20px;
+    margin: 20px;
+}
+
+#pokeNumButton {
     color: white;
+    border-color: white;
+    background-color: rgb(244, 64, 64);
+    width: 70px;
+    margin-left: 0px;
+}
+
+.searchHistoryButton {
+    background: rgba(131, 40, 40, 0.5);
+    border: 1px solid #fff;
+    color: white;
+    text-align: center;
+    width: 150px;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
+
+#displayNameNumber {
+    color: rgb(244, 64, 64);
+}
+
+#listOldPokemon {
+    text-align: center;
+}
+
+.displayOld {
+    margin: 0px;
+}
+
+ul {
+    padding: 0px;
+    margin-bottom: 10px;
+}
+
+li {
+    margin-left: 20px;
+    list-style-type: none;
     text-transform: capitalize;
+}
+
+img {
+    height: 400px;
+    width: 400px;
+    border-radius: 25px;
+    background-size: contain;
 }

@@ -10,12 +10,22 @@
     <title>Pokemon Finder</title>
 </head>
 <body>
-    <h2>Find the Pokemon Stats by Number!</h2>
-    <div id="cards">
-        <h3>Choose A Number Between 1 and 1126!</h3>
-        <input type="number" id="pokeNumberInput" placeholder="Enter Number"></input>
-        <button id="pokeNumButton">Submit</button>
-        <h2 id="displayPokemon">And the answer is...</h2>
+    <h1>Pokemon Stats</h1>
+    <div class="flex-container" id="inputs">
+        <h3 class="flex-item" id="chooseNumber">Choose a number between 1 and 1126:</h3>
+        <input type="number" class="flex-item" id="pokeNumberInput" placeholder="Enter Number"></input>
+        <button class="flex-item" id="pokeNumButton">Find</button>
+    </div>
+    <div class="grid-container">
+        <div>
+            <h3 class="grid-item" id="displayNewPic"></h3>
+        </div>
+        <div>
+            <h3 class="grid-item" id="displayNew"></h3>
+        </div>
+        <div>
+            <h3 class="grid-item" id="displayOld"></h3>
+        </div>
     </div>
 </body>
 </html>
