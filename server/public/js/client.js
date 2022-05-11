@@ -2,7 +2,7 @@ $(document).ready(onReady);
 
 function onReady() {
     $('#pokeNumButton').on('click', checkData);
-    $('#displayOld').on('click', '.searchHistoryButton', runAgain);
+    $('#pokemonLog').on('click', '.searchHistoryButton', runAgain);
 }
 
 //---------------- VALIDATE INPUT ----------------//
@@ -122,11 +122,11 @@ function capitalFirst(word) {
 
 function oldPokemon(response) {
     let pokemons = response.reverse().slice(1);
-    let el = $('#displayOld');
+    let el = $('#pokemonLog');
     el.empty();
-    el.append(`<ul id="listOldPokemon">Search History</ul>`);
-    let el2 = $('#listOldPokemon');
+    let string = '';
     for (i = 0; i < pokemons.length; i++) {
-        el2.append(`<li class="displayOld" id="displayOldIndex${i}"><button class="searchHistoryButton" data-id="${pokemons[i].id}">${capitalFirst(pokemons[i].name)}</button></li>`);
+        string += `<li class="grid-item-2" id="displayOldIndex${i}"><button class="searchHistoryButton" data-id="${pokemons[i].id}">${capitalFirst(pokemons[i].name)}</button></li>`;
     }
+    el.append(`<h3 class="searchHistory" id="displayOld">Search History</h3><ul id="listOldPokemon">${string}</ul>`);
 }

@@ -56,12 +56,22 @@ h1 {
     color: rgb(244, 64, 64);
 }
 
-#listOldPokemon {
+#pokemonLog {
     text-align: center;
 }
 
-.displayOld {
-    margin: 0px;
+#listOldPokemon {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+}
+
+.grid-item-2 {
+    margin: 1px;
+}
+
+#searchHistory {
+    text-align: center;
 }
 
 ul {
