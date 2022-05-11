@@ -9,8 +9,8 @@ function onReady() {
 
 function checkData() {
     let pokeNumber = $('#pokeNumberInput').val();
-    if (pokeNumber < 1 || pokeNumber > 1126) {
-        alert('Choose a number between 1 and 1,126');
+    if (pokeNumber < 1 || pokeNumber > 899) {
+        alert('Choose a number between 1 and 898');
     } else {
         postPokemon(pokeNumber);
     }
