@@ -2,7 +2,7 @@ $(document).ready(onReady);
 
 function onReady() {
     $('#pokeNumButton').on('click', checkData);
-    $('#displayOld').on('click', '.searchHistoryButton', runAgain)
+    $('#displayOld').on('click', '.searchHistoryButton', runAgain);
 }
 
 //---------------- VALIDATE INPUT ----------------//
@@ -13,7 +13,7 @@ function checkData() {
         alert('Choose a number between 1 and 898');
     } else {
         postPokemon(pokeNumber);
-        $('#pokeNumberInput').val('')
+        $('#pokeNumberInput').val('');
     }
 }
 
@@ -22,13 +22,13 @@ function checkData() {
 function postPokemon(pokeNumber) {
     let number = {
         number: pokeNumber
-    }
+    };
     $.ajax({
         method: 'POST',
         url: '/postPokemon',
         data: number
     }).then(response => {
-        console.log(`Valid POST Received From Server: ${response}`)
+        console.log(`Valid POST Received From Server: ${response}`);
         getPokemon();
     }).catch(response => {
         alert(`Invalid POST Received From Server: ${response}`);
@@ -53,13 +53,13 @@ function getPokemon() {
 function runAgain() {
     let number = {
         number: $(this).data(`id`)
-    }
+    };
     $.ajax({
         method: 'POST',
         url: '/postPokemon',
         data: number
     }).then(response => {
-        console.log(`Valid POST Received From Server: ${response}`)
+        console.log(`Valid POST Received From Server: ${response}`);
         getPokemon();
     }).catch(response => {
         alert(`Invalid POST Received From Server: ${response}`);
@@ -72,7 +72,7 @@ function newPokemon(response) {
     let pokemon = response[response.length - 1];
     let el = $('#displayNewPic');
     el.empty();
-    el.append(`<img id="displayPicture" src="https://img.pokemondb.net/artwork/large/${pokemon.name}.jpg"></img>`)
+    el.append(`<img id="displayPicture" src="https://img.pokemondb.net/artwork/large/${pokemon.name}.jpg"></img>`);
     let el2 = $('#displayNew');
     el2.empty();
     el2.append(`<h3 id="displayNameNumber">${capitalFirst(pokemon.name)} is #${pokemon.id}</h3>
@@ -81,7 +81,7 @@ function newPokemon(response) {
         <p id="displayWeight">Weight: ${(pokemon.weight / 10 * 2.204623).toFixed(2)} pounds</p>
         <ul id="displayTypes"><u>Types:</u></ul>
         <ul id="displayAbilities"><u>Abilities:</u></ul>`
-    )
+    );
     getTypes(pokemon);
     getAbilities(pokemon);
 }
@@ -91,9 +91,9 @@ function getTypes(pokemon) {
     let string = '';
     let types = pokemon.types;
     for (i = 0; i < types.length; i++) {
-        string += `<li class="pokemonTypes" id="pokemonTypes${i}">${types[i].type.name}</li>`;
+        string += `<li class="pokemonTypes" id="pokemonTypes${i}">${capitalFirst(types[i].type.name)}</li>`;
     }
-    el.append(string)
+    el.append(string);
 }
 
 function getAbilities(pokemon) {
@@ -101,17 +101,17 @@ function getAbilities(pokemon) {
     let string = '';
     let abilities = pokemon.abilities;
     for (i = 0; i < abilities.length; i++) {
-        string += `<li class="pokemonAbilities" id="pokemonAbilities${i}">${abilities[i].ability.name}</li>`;
+        string += `<li class="pokemonAbilities" id="pokemonAbilities${i}">${capitalFirst(abilities[i].ability.name)}</li>`;
     }
-    el.append(string)
+    el.append(string);
 }
 
 function capitalFirst(word) {
     if (word.includes('-')) {
-        word = word.replace('-', ' ')
+        word = word.replace('-', ' ');
         word = word.split(' ');
         word = word.map(el => {
-            return `${el.charAt(0).toUpperCase()}${el.slice(1)}`
+            return `${el.charAt(0).toUpperCase()}${el.slice(1)}`;
         })
         return word.join(' ');
     }
@@ -124,7 +124,7 @@ function oldPokemon(response) {
     let pokemons = response.reverse().slice(1);
     let el = $('#displayOld');
     el.empty();
-    el.append(`<ul id="listOldPokemon">Search History</ul>`)
+    el.append(`<ul id="listOldPokemon">Search History</ul>`);
     let el2 = $('#listOldPokemon');
     for (i = 0; i < pokemons.length; i++) {
         el2.append(`<li class="displayOld" id="displayOldIndex${i}"><button class="searchHistoryButton" data-id="${pokemons[i].id}">${capitalFirst(pokemons[i].name)}</button></li>`);
