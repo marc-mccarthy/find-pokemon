@@ -13,6 +13,7 @@ function checkData() {
         alert('Choose a number between 1 and 898');
     } else {
         postPokemon(pokeNumber);
+        $('#pokeNumberInput').val('')
     }
 }
 
@@ -105,17 +106,6 @@ function getAbilities(pokemon) {
     el.append(string)
 }
 
-function oldPokemon(response) {
-    let pokemons = response.reverse().slice(1);
-    let el = $('#displayOld');
-    el.empty();
-    el.append(`<ul id="listOldPokemon">Search History</ul>`)
-    let el2 = $('#listOldPokemon');
-    for (i = 0; i < pokemons.length; i++) {
-        el2.append(`<li class="displayOld" id="displayOldIndex${i}"><button class="searchHistoryButton" data-id="${pokemons[i].id}">${capitalFirst(pokemons[i].name)}</button></li>`);
-    }
-}
-
 function capitalFirst(word) {
     if (word.includes('-')) {
         word = word.replace('-', ' ')
@@ -126,4 +116,17 @@ function capitalFirst(word) {
         return word.join(' ');
     }
     return `${word.charAt(0).toUpperCase()}${word.slice(1)}`;
+}
+
+//---------------- HISTORY FUNCTIONS ----------------//
+
+function oldPokemon(response) {
+    let pokemons = response.reverse().slice(1);
+    let el = $('#displayOld');
+    el.empty();
+    el.append(`<ul id="listOldPokemon">Search History</ul>`)
+    let el2 = $('#listOldPokemon');
+    for (i = 0; i < pokemons.length; i++) {
+        el2.append(`<li class="displayOld" id="displayOldIndex${i}"><button class="searchHistoryButton" data-id="${pokemons[i].id}">${capitalFirst(pokemons[i].name)}</button></li>`);
+    }
 }
