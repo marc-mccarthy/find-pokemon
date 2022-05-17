@@ -2,7 +2,7 @@
 
 ## Heroku Link
 
-[Pokemon Finder](https://salty-meadow-43357.herokuapp.com/)
+[Pokemon Finder](https://find-pokemon-1.herokuapp.com/)
 
 ## Description
 
