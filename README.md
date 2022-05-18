@@ -1,8 +1,8 @@
-# Pokemon Finder
+# Find Pokemon
 
 ## Heroku Link
 
-[Pokemon Finder](https://find-pokemon-1.herokuapp.com/)
+[Find Pokemon](https://find-pokemon-1.herokuapp.com/)
 
 ## Description
 
